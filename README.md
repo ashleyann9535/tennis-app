@@ -1,8 +1,6 @@
-# Coming Soon....Tennis App
+# Coming Soon....Tennis Court Booking Site
 
-This project is to create one site to check tennis scores and matches in one place. 
-
-## Background
+This project is to book open tennis courts to play with friends and family.
 
 
 
