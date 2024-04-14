@@ -1,5 +1,6 @@
 
 import './App.css'
+import CourtForm from './components/CourtForm'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <div>
         <h1>Book Your Tennis Court</h1>
+        <CourtForm />
       </div>
     </>
   )
