@@ -2,4 +2,5 @@ const CourtController = require('../controllers/court.controller'); //import con
 
 module.exports = (app) => {
     app.get('/api', CourtController.index);
+    app.post('/api/courts', CourtController.createCourt);
 }
