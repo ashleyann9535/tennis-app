@@ -1,18 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios';
 
 const CourtForm = () => {
-    const [message, setMessage] = useState('Loading...')
-    useEffect(() => {
-        axios.get('http://localhost:8000/api')
-            .then(res => setMessage(res.data.message))
-            .catch(err => console.log(err))
-    }, []);
+    const [name, setName] = useState('');
+    
+    //handle submitted form
+    const onSubmitHandler = e => {
+        //prevent default
+        e.preventDefault();
+        //make request to add a court
+        axios.post('http://localhost:8000/api/courts', {
+            name, //shortcut for name: name
+        })
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+        .catch(err => console.log(err))
+    }
 
     return(
-        <div>
-            <h2>Message from the backend: {message}</h2>
-        </div>
+        <form onSubmit={onSubmitHandler}>
+            <p>
+                <label>Court Name: </label>
+                <input type="text" onChange={e => setName(e.target.value)} />
+            </p>
+            <input type="submit" />
+        </form>
     )
 
 }
