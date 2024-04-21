@@ -1,17 +1,21 @@
-
-import './App.css'
-import CourtForm from './components/CourtForm'
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./components/Main";
+import CourtForm from "./components/CourtForm";
 
 function App() {
-
   return (
     <>
       <div>
-        <h1>Book Your Tennis Court</h1>
-        <CourtForm />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Main />} path="/" default />
+            <Route element={<CourtForm />} path="addcourt" />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

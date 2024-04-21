@@ -3,8 +3,8 @@ const Court = require('../models/court.model');
 
 module.exports = {
     //test backend connection
-    index: (request, response) => {
-        response.json({
+    index: (req, res) => {
+        res.json({
             message: 'Hello World'
         });
     },
@@ -13,6 +13,19 @@ module.exports = {
     createCourt: (req, res) => {
         Court.create(req.body)
             .then(newCourt => res.json(newCourt))
-            .catch(err => response.json(err))
+            .catch(err => response.json(err));
+    },
+
+    //Read All Courts
+    getCourts: (req, res) => {
+        Court.find({})
+        .then(courts => {
+            console.log(courts);
+            res.json(courts)
+        })
+        .catch(err => {
+            console.log(err)
+            res.json(err)
+        });
     }
 }
